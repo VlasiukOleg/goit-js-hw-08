@@ -22,6 +22,15 @@ function onChangeInput({ target }) {
 function onSubmitForm(event) {
   event.preventDefault();
 
+  const emailInput = formEl.elements.email;
+  const messageInput = formEl.elements.message;
+
+  if (!emailInput.value || !messageInput.value) {
+    alert('Заповніть усі поля');
+
+    return;
+  }
+
   formEl.reset();
 
   localStorage.removeItem(STORAGE_KEY);
