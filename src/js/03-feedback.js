@@ -16,7 +16,12 @@ function onChangeInput({ target }) {
 
   formData[target.name] = value;
 
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+  const emailInput = formEl.elements.email;
+  const messageInput = formEl.elements.message;
+
+  if (emailInput.value && messageInput.value) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+  }
 }
 
 function onSubmitForm(event) {
